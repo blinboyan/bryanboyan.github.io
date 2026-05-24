@@ -1,36 +1,50 @@
+import Link from "next/link";
+import { getSortedPostsData } from "../lib/posts";
 
-import Link from 'next/link';
-import { getSortedPostsData } from '../lib/posts';
+function formatDate(dateStr: string) {
+  const d = new Date(dateStr);
+  const year = d.getFullYear();
+  const month = d
+    .toLocaleString("en-US", { month: "short" })
+    .toLowerCase();
+  return `${year} · ${month}`;
+}
 
 export default async function Home() {
   const allPostsData = await getSortedPostsData();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans">
-      <div className="z-10 w-full max-w-2xl items-center justify-between text-sm flex-col">
-        <header className="mb-12 text-center md:text-left">
-          <h1 className="text-4xl font-bold tracking-tight mb-2">My Personal Blog</h1>
-          <p className="text-zinc-600 dark:text-zinc-400">Thoughts, stories, and ideas.</p>
-        </header>
-
-        <section className="w-full">
-          <ul className="flex flex-col gap-8">
-            {allPostsData.map(({ id, date, title }) => (
-              <li key={id} className="group relative border-b border-zinc-200 dark:border-zinc-800 pb-8 last:border-0 last:pb-0">
-                <Link href={`/blog/${id}`} className="block">
-                  <div className="flex flex-col sm:flex-row justify-between sm:items-baseline gap-2">
-                    <h2 className="text-2xl font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                      {title}
-                    </h2>
-                    <time className="text-sm text-zinc-500 whitespace-nowrap font-mono">{date}</time>
-                  </div>
-                  {/* Optional: Add description if available in frontmatter */}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
+    <main className="home-wrap">
+      <h1>
+        Boyan Lin <em>— software &amp; small things.</em>
+      </h1>
+      <div className="tagline">
+        Software engineer drawn to the seams of systems — protocols, schemas,
+        and the tiny negotiations between them.
       </div>
+
+      <h2>Writing</h2>
+      {allPostsData.map(({ id, date, title }) => (
+        <Link href={`/blog/${id}`} className="post-row" key={id}>
+          <span className="post-date">{formatDate(date)}</span>
+          <span className="post-title">{title}</span>
+        </Link>
+      ))}
+
+      <h2>Work</h2>
+      <p>
+        For projects, experience, and a full professional history, see my{" "}
+        <Link href="/resume">résumé</Link>.
+      </p>
+
+      <h2>Elsewhere</h2>
+      <div className="elsewhere">
+        <a href="https://github.com/bryanboyan">github</a>
+        <a href="https://linkedin.com/in/boyanlin">linkedin</a>
+        <a href="mailto:blin.boyan@gmail.com">mail</a>
+      </div>
+
+      <footer className="home-footer">© 2026 · boyanlin.com</footer>
     </main>
   );
 }

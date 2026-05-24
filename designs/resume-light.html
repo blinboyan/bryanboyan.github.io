@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Blin Boyan — résumé</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5f0e6;
+    --ink:#1f1a12;
+    --dim:#5a4f3a;
+    --mut:#8a7d63;
+    --rule:#c9bda3;
+    --ember:#b25a3c;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:14px; line-height:1.65;
+  }
+  a{color:var(--ember); text-decoration:none; border-bottom:1px dashed var(--ember)}
+  a:hover{color:var(--ink); border-bottom-color:var(--ink)}
+  ::selection{background:var(--ember); color:var(--bg)}
+
+  .wrap{max-width:680px; margin:0 auto; padding:64px 28px 120px}
+
+  .back{
+    display:inline-block; font-size:11px; color:var(--mut);
+    margin-bottom:40px; border:0;
+  }
+  .back:hover{color:var(--ember); border:0}
+
+  h1{
+    font-family:'Fraunces',serif; font-weight:400;
+    font-size:38px; line-height:1.05; letter-spacing:-.02em;
+    margin:0 0 6px;
+  }
+  h1 em{font-style:italic; color:inherit}
+  .sub{color:var(--dim); font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:48px}
+
+  h2{
+    font-size:11px; font-weight:500;
+    letter-spacing:.14em; text-transform:uppercase;
+    color:var(--mut);
+    margin:48px 0 18px;
+  }
+
+  p{margin:0 0 14px; max-width:62ch}
+
+  /* story */
+  .story p{color:var(--ink)}
+  .story p + p{margin-top:10px}
+
+  /* experience — impact-first */
+  .role{
+    padding:22px 0;
+    border-top:1px dashed var(--rule);
+  }
+  .role:last-of-type{border-bottom:1px dashed var(--rule)}
+  .role .impact{
+    font-family:'Fraunces',serif; font-size:19px; line-height:1.4;
+    color:var(--ink); max-width:56ch;
+    margin:0 0 10px;
+  }
+  .role .meta{
+    display:flex; flex-wrap:wrap; gap:14px;
+    color:var(--mut); font-size:11px;
+    letter-spacing:.08em;
+  }
+  .role .meta .co{color:var(--dim)}
+  .role .meta .sep{color:var(--rule)}
+
+  /* projects (compact) */
+  .row{
+    display:grid; grid-template-columns:1fr 60px;
+    gap:16px; padding:10px 0;
+    border-top:1px dashed var(--rule);
+    color:var(--ink);
+  }
+  .row:last-of-type{border-bottom:1px dashed var(--rule)}
+  .row:hover{color:var(--ember)}
+  .row .d{color:var(--dim); font-size:12px; margin-top:2px}
+  .row:hover .d{color:var(--dim)}
+  .row .yr{color:var(--mut); font-size:11px; text-align:right}
+
+  /* skills */
+  .skills{
+    display:grid; grid-template-columns:110px 1fr;
+    gap:16px 24px; font-size:13px;
+  }
+  .skills dt{color:var(--mut); font-size:11px; letter-spacing:.1em; text-transform:uppercase; padding-top:2px}
+  .skills dd{margin:0; color:var(--ink)}
+
+  /* education */
+  .edu{
+    display:grid; grid-template-columns:120px 1fr;
+    gap:24px; padding:14px 0;
+    border-top:1px dashed var(--rule); border-bottom:1px dashed var(--rule);
+  }
+  .edu .when{color:var(--mut); font-size:11px}
+  .edu .name{font-family:'Fraunces',serif; font-size:18px; color:var(--ink)}
+  .edu .deg{color:var(--dim); font-size:12px}
+
+  .placeholder{color:var(--mut); font-style:italic}
+
+  footer{margin-top:80px; color:var(--mut); font-size:11px; display:flex; justify-content:space-between}
+  footer a{color:var(--mut); border:0}
+  footer a:hover{color:var(--ember)}
+
+  @media (max-width:560px){
+    .edu{grid-template-columns:1fr; gap:6px}
+    .skills{grid-template-columns:1fr}
+    .skills dt{padding-top:10px}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <a class="back" href="index-light.html">← back</a>
+
+    <h1>Blin Boyan <em>— résumé.</em></h1>
+    <div class="sub">Last updated · Apr 2026</div>
+
+    <h2>Story</h2>
+    <div class="story">
+      <p>I became a software engineer the long way around — starting with curiosity about how the machines underneath everything actually work, and staying because the questions kept getting more interesting. I've spent most of my career on the backend, building tools, services, and small infrastructures that other people's work depends on.</p>
+      <p>What I care about is legibility: systems that are small enough to hold in your head, that fail in understandable ways, and that leave room for the next person to change their mind. I'm happiest at the seams between teams and between systems, where the work is as much writing as it is coding.</p>
+      <p class="placeholder">// replace with your own story — 2–3 paragraphs, your voice.</p>
+    </div>
+
+    <h2>Experience</h2>
+
+    <div class="role">
+      <p class="impact">Led the migration of core storage to a new layer, cutting p99 latency in half and reducing on-call load across the platform team.</p>
+      <div class="meta"><span>2023 — now</span><span class="sep">·</span><span class="co">Company Name · Senior Engineer</span></div>
+    </div>
+
+    <div class="role">
+      <p class="impact">Shipped a new internal developer platform that replaced three legacy deployment pipelines, reducing time-to-first-deploy for new engineers from a week to an afternoon.</p>
+      <div class="meta"><span>2021 — 2023</span><span class="sep">·</span><span class="co">Previous Company · Infrastructure</span></div>
+    </div>
+
+    <div class="role">
+      <p class="impact">Built the first version of the product's public API as the team's first engineering hire; still the surface most of the company's integrations flow through.</p>
+      <div class="meta"><span>2019 — 2021</span><span class="sep">·</span><span class="co">Earlier Company</span></div>
+    </div>
+
+    <div class="role">
+      <p class="impact">Owned backend services for a growing mobile product; learned, as one does, how to write code other people would need to read.</p>
+      <div class="meta"><span>2018 — 2019</span><span class="sep">·</span><span class="co">First Role · Intern → Full-time</span></div>
+    </div>
+
+    <p class="placeholder" style="margin-top:14px">// each entry leads with impact. company/title/dates are captions.</p>
+
+    <h2>Selected projects</h2>
+    <a class="row" href="#"><span>kindling<div class="d">A quiet static-site generator for long-form writing.</div></span><span class="yr">2025</span></a>
+    <a class="row" href="#"><span>atlas.db<div class="d">An embedded KV store with human-readable on-disk format.</div></span><span class="yr">2025</span></a>
+    <a class="row" href="#"><span>postmark<div class="d">CLI for drafting letters to your future self over IMAP.</div></span><span class="yr">2024</span></a>
+    <a class="row" href="#"><span>tinyparse<div class="d">A 300-line recursive-descent parser kit.</div></span><span class="yr">2024</span></a>
+    <a class="row" href="#"><span>lowtide<div class="d">Menu-bar app that mutes notifications when the tide comes in.</div></span><span class="yr">2023</span></a>
+
+    <h2>Education</h2>
+    <div class="edu">
+      <div class="when">20XX — 20XX</div>
+      <div>
+        <div class="name">University Name</div>
+        <div class="deg">B.S., Computer Science</div>
+      </div>
+    </div>
+
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>Languages</dt><dd>Go, Rust, Python, TypeScript, SQL</dd>
+      <dt>Systems</dt><dd>Distributed systems, storage, APIs, developer tooling</dd>
+      <dt>Tooling</dt><dd>Postgres, Redis, Kafka, Docker, Kubernetes, Terraform</dd>
+      <dt>Interests</dt><dd>Content-addressable storage, protocol design, small tools</dd>
+    </dl>
+
+    <footer>
+      <span>© 2026 · blinboyan.github.io</span>
+      <span><a href="/cdn-cgi/l/email-protection#d5b8b4bcb995b7b9bcbbb7baacb4bbfbb1b0a3"><span class="__cf_email__" data-cfemail="89e4e8e0e5c9ebe5e0e7ebe6f0e8e7a7edecff">[email&#160;protected]</span></a></span>
+    </footer>
+  </div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
